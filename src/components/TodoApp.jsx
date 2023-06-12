@@ -1,5 +1,7 @@
 
 import '@/App.css'
+import Header from '@/components/Header'
+import TodosLogic from '@/components/TodosLogic'
 
 
 function App() {
@@ -7,11 +9,10 @@ function App() {
 
   return (
     <>
-    <div>
-      <h1>Hello world!</h1>
-      <p>I am in a React Component!</p>
-    </div>
+    <Header/>
+    <TodosLogic/>
     </>
+
   )
 }
 
