@@ -35,10 +35,17 @@ function TodosLogic() {
     )
   }
 
+  const delTodo = (id)=>{
+    setTodos([
+      ...todos.filter((todo) => {
+        return todo.id !== id;
+      }),
+    ]);
+  }
   return (
     <>    
     <InputTodo/>
-    <TodosList todo = {todos} handleChange = {handleChange}/>    
+    <TodosList todo = {todos} handleChange = {handleChange} delTodo= {delTodo}/>    
     </>
 
   )
