@@ -2,6 +2,7 @@
 import '@/App.css'
 import Header from '@/components/Header'
 import TodosLogic from '@/components/TodosLogic'
+import NavBar from '@/components/NavBar'
 
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
 
   return (
     <>
+    <NavBar/>
     <Header/>
     <TodosLogic/>
     </>
