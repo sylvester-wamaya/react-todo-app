@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from 'react'
 function NavBar() {
     const [dropdown, setDropdown] = useState(false);
     const ref = useRef();
-    console.log(ref)
 
     useEffect(() => {
         const handler = (event) => {

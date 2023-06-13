@@ -1,8 +1,13 @@
 import React from 'react'
 
-function TodoItem({todo}) {
+function TodoItem({todo, handleChange}) {
+
+
   return (
-    <li>{todo.title}</li>
+    <li>
+    <input type="checkbox" checked= {todo.completed} onChange={()=>handleChange(todo.id)}/>
+    {todo.title}
+    </li>
   )
 }
 
