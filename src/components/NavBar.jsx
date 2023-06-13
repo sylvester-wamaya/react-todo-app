@@ -2,11 +2,23 @@ import React, { useState } from 'react'
 
 
 function NavBar() {
-    console.log(useState(false))
+    const [dropdown, setDropdown] = useState(false);
   return (
-    <div>
-      About Design App
-    </div>
+    <nav>
+    <ul>
+      <li>Home</li>
+      <li>About</li>
+      <li>
+        <button onClick={()=>setDropdown((prev)=> !prev)}>
+          Services <span>&#8595;</span>
+        </button>
+        {dropdown && (<ul>
+          <li>Design</li>
+          <li>Development</li>
+        </ul>)} 
+      </li>
+    </ul>
+  </nav>
   )
 }
 
