@@ -13,6 +13,13 @@ let viewMode = {};
   } else {
     editMode.display = 'none';
   }
+
+const exitEdit = (e)=>{
+  if(e.key === "Enter"){
+    setEdit(false)
+  }
+}
+
   return (
     <li>
       <div style={viewMode}>
@@ -26,6 +33,7 @@ let viewMode = {};
       defaultValue={todo.title}     
       style={editMode}
       onChange={(e)=>updateTodo(e.target.value, todo.id)}
+      onKeyDown={exitEdit}
     />
     </li>
   )
