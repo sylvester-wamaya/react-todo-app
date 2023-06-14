@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import styles from '@/styles/TodoItem.module.css';
 
 function TodoItem({todo, handleChange, delTodo, updateTodo}) {
 
 const [edit, setEdit] = useState(false)
+const editInputRef = useRef(null)
+//const [updateInput, setUpdateInput] = useState(todo.title);
 const handleEdit = ()=>{
   setEdit(true)
 }
@@ -17,7 +19,9 @@ let viewMode = {};
 
 const exitEdit = (e)=>{
   if(e.key === "Enter"){
+    updateTodo(editInputRef.current.value, todo.id)
     setEdit(false)
+    
   }
 }
 
@@ -40,9 +44,10 @@ const completedStyle = {
     </div>
     <input
       type="text"
+      ref={editInputRef}
       defaultValue={todo.title}     
       style={editMode}
-      onChange={(e)=>updateTodo(e.target.value, todo.id)}
+      //onChange={(e) =>updateTodo(e.target.value, todo.id)}
       onKeyDown={exitEdit}
     />
     </li>
