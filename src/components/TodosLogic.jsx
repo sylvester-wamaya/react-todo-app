@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import InputTodo from '@/components/InputTodo';
 import TodosList from '@/components/TodosList';
 import { v4 as uuidv4 } from "uuid";
@@ -6,23 +6,15 @@ import { v4 as uuidv4 } from "uuid";
 
 
 function TodosLogic() {
-  const [ todos, setTodos] = useState([
-    {
-      id: uuidv4(),
-      title: 'Setup development environment',
-      completed: true,
-    },
-    {
-      id: uuidv4(),
-      title: 'Develop website and add content',
-      completed: false,
-    },
-    {
-      id: uuidv4(),
-      title: 'Deploy to live server',
-      completed: true,
-    },
-  ]);
+  const [ todos, setTodos] = useState( JSON.parse(localStorage.getItem("todos")) || []);
+
+  useEffect(()=>{
+    localStorage.setItem("todos", JSON.stringify(todos))
+  },[todos])
+
+
+  
+  
 
   const handleChange = (id)=>{
     setTodos((prevState)=>
@@ -64,6 +56,7 @@ function TodosLogic() {
           
   })
       )
+
   }
   return (
     <>    

@@ -1,5 +1,8 @@
 import React, { useRef, useState } from 'react'
 import styles from '@/styles/TodoItem.module.css';
+import { FaTrash } from "react-icons/fa";
+import { AiFillEdit } from "react-icons/ai";
+
 
 function TodoItem({todo, handleChange, delTodo, updateTodo}) {
 
@@ -39,8 +42,8 @@ const completedStyle = {
     <span style={todo.completed ? completedStyle : null}>
     {todo.title}
     </span>
-    <button onClick={handleEdit}>Edit</button>
-    <button onClick={()=>delTodo(todo.id)}>Delete</button>
+    <button onClick={handleEdit}><AiFillEdit style={{ color: "#5e5e5e", fontSize: "16px" }}/></button>
+    <button onClick={()=>delTodo(todo.id)}><FaTrash style={{ color: "#5e5e5e", fontSize: "16px" }}/></button>
     </div>
     <input
       type="text"
