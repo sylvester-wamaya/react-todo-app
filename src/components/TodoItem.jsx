@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import styles from '@/styles/TodoItem.module.css';
 
 function TodoItem({todo, handleChange, delTodo, updateTodo}) {
 
@@ -20,11 +21,20 @@ const exitEdit = (e)=>{
   }
 }
 
+const completedStyle = {
+  fontStyle: 'italic',
+  color: '#595959',
+  opacity: 0.4,
+  textDecoration: 'line-through',
+};
+
   return (
-    <li>
-      <div style={viewMode}>
+    <li className={styles.item}>
+      <div style={viewMode} className={styles.content}>
     <input type="checkbox" checked= {todo.completed} onChange={()=>handleChange(todo.id)}/>
+    <span style={todo.completed ? completedStyle : null}>
     {todo.title}
+    </span>
     <button onClick={handleEdit}>Edit</button>
     <button onClick={()=>delTodo(todo.id)}>Delete</button>
     </div>

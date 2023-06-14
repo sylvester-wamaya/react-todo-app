@@ -23,12 +23,12 @@ function InputTodo({addTodoItem}) {
   }
   return (
     <>
-<form onSubmit={handleSubmit}>
-<input type="text" name='todo' value={title} placeholder="Add Todo..." onChange={handleChange} />
+<form onSubmit={handleSubmit} className="form-container">
+<input className="input-text" type="text" name='todo' value={title} placeholder="Add Todo..." onChange={handleChange} />
 
-<button>Submit</button>
+<button className="input-submit">Submit</button>
 </form>
-<span>{messege}</span>
+<span className="submit-warning">{messege}</span>
 </>
   )
 }
