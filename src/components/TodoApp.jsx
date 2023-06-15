@@ -1,25 +1,24 @@
-
-import '@/styles/App.css'
-import Header from '@/components/Header'
-import TodosLogic from '@/components/TodosLogic'
-import NavBar from '@/components/NavBar'
+import { Routes, Route } from 'react-router-dom';
 
 
-function App() {
+import About from '@/routes/About';
+import Login from '@/routes/Login';
+import Profile from '@/routes/Profile';
+import NotMatch from '@/routes/NotMatch';
+import Layout from '@/components/Layout';
+import SinglePage from '@/routes/SinglePage';
 
-
+const TodoApp = () => {
   return (
-    <>
-    <NavBar/>
-      <div className='wrapper'>
-      <div className='todo'>
-    <Header/>
-    <TodosLogic/>
-    </div>
-    </div>
-    </>
-
-  )
-}
-
-export default App
+    <Routes>
+      <Route path="/" element={<Layout />} />
+      <Route path="about" element={<About />}>
+      <Route path=":slug" element={<SinglePage />} />
+      </Route>
+      <Route path="login" element={<Login />} />
+      <Route path="profile" element={<Profile />} />
+      <Route path="*" element={<NotMatch />} />
+    </Routes>
+  );
+};
+export default TodoApp;
