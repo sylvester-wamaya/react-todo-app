@@ -1,10 +1,18 @@
-import React, { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import styles from '@/styles/TodoItem.module.css';
 import { FaTrash } from "react-icons/fa";
 import { AiFillEdit } from "react-icons/ai";
+import PropTypes from 'prop-types';
 
 
 function TodoItem({todo, handleChange, delTodo, updateTodo}) {
+
+  TodoItem.propTypes = {
+    todo: PropTypes.array.isRequired,
+    handleChange: PropTypes.func.isRequired,
+    delTodo: PropTypes.func.isRequired,
+    updateTodo: PropTypes.func.isRequired
+  }
 
 const [edit, setEdit] = useState(false)
 const editInputRef = useRef(null)

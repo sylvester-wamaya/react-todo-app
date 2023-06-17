@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react'
+
 import { NavLink } from 'react-router-dom';
-import TodosLogic from './TodosLogic';
-import About from './About';
+import { useState, useRef, useEffect } from 'react';
 
 
 function NavBar() {
