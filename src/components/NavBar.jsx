@@ -31,8 +31,8 @@ function NavBar() {
           Services <span>&#8595;</span>
         </button >
         {dropdown && (<ul className='dropdown'>
-          <li>Design</li>
-          <li>Development</li>
+          <li> <NavLink to='design'>Design</NavLink></li>
+          <li><NavLink to='development'>Development</NavLink></li>
         </ul>)} 
       </li>
     </ul>
