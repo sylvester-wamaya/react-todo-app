@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import InputTodo from '@/components/InputTodo';
 import TodosList from '@/components/TodosList';
 import { v4 as uuidv4 } from "uuid";
+import Header from './Header';
 
 
 
@@ -59,7 +60,8 @@ function TodosLogic() {
 
   }
   return (
-    <>    
+    <> 
+   <Header/>
     <InputTodo addTodoItem = {addTodoItem}/>
     <TodosList todo = {todos} handleChange = {handleChange} delTodo= {delTodo} updateTodo={updateTodo}/>    
     </>
