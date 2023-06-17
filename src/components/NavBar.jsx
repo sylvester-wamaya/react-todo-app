@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { NavLink } from 'react-router-dom';
+import TodosLogic from './TodosLogic';
+import About from './About';
 
 
 function NavBar() {
@@ -20,14 +23,14 @@ function NavBar() {
 
   return (
     <nav>
-    <ul>
-      <li>Home</li>
-      <li>About</li>
+    <ul className='nav-bar'>
+      <li className='nav-item' ><NavLink to='/'>Home</NavLink></li>
+      <li className='nav-item'><NavLink  to='about'>About</NavLink></li>
       <li ref={ref}>
-        <button onClick={()=>setDropdown((prev)=> !prev)}>
+        <button className='nav-item' onClick={()=>setDropdown((prev)=> !prev)}>
           Services <span>&#8595;</span>
-        </button>
-        {dropdown && (<ul>
+        </button >
+        {dropdown && (<ul className='dropdown'>
           <li>Design</li>
           <li>Development</li>
         </ul>)} 
